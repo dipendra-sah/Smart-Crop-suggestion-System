@@ -13,9 +13,9 @@ async function processSoilData() {
     try {
         // Show loading state
         showLoading();
-        
+         
         // Call Python prediction API
-        const response = await fetch('http://localhost:5000/predict', {
+        const response = await fetch('http://ec2-43-205-99-101.ap-south-1.compute.amazonaws.com:5000/predict', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
