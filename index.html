@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Crop Suggestion System</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>🌱 Smart Crop Suggestion System</h1>
+            <p>Get personalized crop recommendations based on your soil conditions using Machine Learning</p>
+        </header>
+
+        <main class="main-content">
+            <section class="input-section">
+                <h2>Enter Your Soil Details</h2>
+                
+                <form id="soilForm" class="space-y-4">
+                    <div class="grid grid-cols-2">
+                        <!-- pH Level -->
+                        <div class="form-group">
+                            <label for="ph">
+                                pH Level <span class="hint">(3.5 - 8.0)</span>
+                            </label>
+                            <input type="number" id="ph" min="4" max="9" step="0.1" placeholder="">
+                            <div class="hint">Soil acidity level</div>
+                        </div>
+
+                        <!-- Soil Type -->
+                        <div class="form-group">
+                            <label for="soilType">Soil Type</label>
+                            <select id="soilType">
+                                <option value="">Select soil type</option>
+                                <option value="Sandy">Sandy</option>
+                                <option value="Loamy">Loamy</option>
+                                <option value="Black">Black</option>
+                                <option value="Red">Red</option>
+                                <option value="Clay">Clay</option>
+                            </select>
+                            <div class="hint">Soil classification</div>
+                        </div>
+                    </div>
+
+                    <!-- Soil Moisture (categorical) -->
+                    <div class="form-group">
+                        <label for="moisture">Soil Moisture</label>
+                        <select id="moisture">
+                            <option value="">Select moisture level</option>
+                            <option value="Dry">Dry</option>
+                            <option value="Moist">Moist</option>
+                            <option value="Wet">Wet</option>
+                        </select>
+                        <div class="hint">Choose approximate soil moisture: Dry, Moist, or Wet</div>
+                    </div>
+
+                    <!-- Simple Model Info -->
+                    <div class="info-box">
+                        <h3>
+                            <i class="fas fa-brain"></i>
+                            pH & Soil Type Based Prediction
+                        </h3>
+                        <p>
+                            This system uses a simple algorithm to recommend crops based on pH level and soil type. 
+                            Each crop has optimal pH ranges and preferred soil types. The system calculates compatibility 
+                            scores and suggests the most suitable crops for your environment.
+                        </p>
+                    </div>
+
+                    <button type="submit" class="btn-primary" id="get-suggestions">
+                        <i class="fas fa-search"></i> Get Crop Suggestions
+                    </button>
+                </form>
+            </section>
+
+            <section class="results-section" id="results" style="display: none;">
+                <h2>🌾 Recommended Crops</h2>
+                <div id="crop-suggestions" class="crop-grid">
+                    <!-- Crop suggestions will be dynamically added here -->
+                </div>
+                
+                <div class="soil-analysis" id="soil-analysis">
+                    <!-- Soil analysis will be displayed here -->
+                </div>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <p>© 2024 Smart Crop Suggestion System | Helping farmers make informed decisions with ML</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
